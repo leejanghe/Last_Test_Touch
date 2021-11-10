@@ -1,7 +1,8 @@
-import React,{useState, useEffect} from 'react'
+import React,{useRef} from 'react'
 import swal from 'sweetalert';
 import {FullScreen,useFullScreenHandle} from "react-full-screen";
-import MainIsLogin from './MainIsLogin';
+import TouchIsLogin from './TouchIsLogin'
+import '../maincss/Touch.css'
 import axios from 'axios'
 
 
@@ -33,28 +34,58 @@ function Touch({moveImgs,isLogin}) {
           })
       };
 
-        return !isLogin?<MainIsLogin 
-       
-        />
+
+      const audioRef = useRef(null);
+      
+        const handlePlay = () => {
+          audioRef.current.play();
+        };
+      
+        const handlePause = () => {
+          audioRef.current.pause();
+        };
+
+        return !isLogin?<TouchIsLogin />
         :(
             <div>
-              <div>gdgd</div>
-                <h1>즐기셈</h1>
-                <button onClick={handle.enter}>Enter fullscreen</button>
-                <button onClick={handleLikeCardClick}>찜하기 입니당</button>
+              
+              <div className="touch_background">
+  
+               <div className="touch_icon">
+               <div onClick={handlePlay}>
+              <i  className="far fa-play-circle"></i>
+              </div>
+              <div onClick={handlePause}>
+              <i  className="far fa-stop-circle"></i>
+              </div>
+              <div onClick={handle.enter}>
+              <i className="fas fa-expand-arrows-alt"></i>
+              </div>
+              
+              <div onClick={handleLikeCardClick}>
+              <i className="fas fa-heart"></i>
+              </div>
+               </div>
+               <p className="touch_text">이미지와 함께 즐겁게 감상하세요 😀</p>
+               
+              <audio 
+              autoPlay='autoPlay'
+              ref={audioRef} src={moveImgs.sound} type="audio/mpeg" ></audio>
+              </div>
                 <FullScreen  
                 hight={'100%'}
                 width={'100%'}
                 handle={handle}>
                 <video 
+                
                 width='100%'
                 height='100%'
                 autoPlay="autoPlay" 
                 loop="loop" 
                 className='thumbnail' 
-                src={moveImgs.image} 
+                src={moveImgs.picture} 
                 alt='thumbnail' />
-                <audio controls autoplay="autoplay" src={moveImgs.sound} type="audio/mpeg" ></audio>
+                {/* <audio src={moveImgs.sound} type="audio/mpeg" ></audio> */}
                 </FullScreen>
             </div>
          )

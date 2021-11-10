@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import '../maincomponent/maincss/Search.css'
+import '../maincss/Search.css'
 import { Link } from 'react-router-dom'
 
 function Search({search}) {

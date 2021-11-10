@@ -1,4 +1,16 @@
-.test-back1{
+.top{
+  display:scroll;
+  position:fixed;
+  bottom:10px;
+  right:10px;
+  z-index: 99;
+}
+
+
+
+
+
+.test-back{
   background: linear-gradient(-45deg, #2c3e50, #3498db, #f1f2b5, #135058);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
@@ -19,36 +31,36 @@
 
 
 
-.test1 {
+.test {
     display: flex;
     flex-wrap: wrap;
 }
 
-.imgtext1{
+.imgtext{
     /* z-index: 1; */
     opacity: 0;
     transition: all ease .9s;
 }
 
 
-.main__btn1{
+.main__btn{
     color:rgb(0, 0, 0);
     border:none;
     border-radius: 5px;
-    padding: 0 1.5rem;
+    padding: 0 1rem;
     position:relative;
     height:30px;
     font-size:1em;
-    margin-top: 40px;
+    margin: 12px;
     cursor:pointer;
     transition:800ms ease all;
     outline:none;
   }
-  .main__btn1:hover{
+  .main__btn:hover{
     background:rgb(0, 0, 0);
     color:#ffffff;
   }
-  .main__btn1:before,.main__btn:after{
+  .main__btn:before,.main__btn:after{
     content:'';
     position:absolute;
     top:0;
@@ -58,13 +70,13 @@
     background: #f90101;
     transition:400ms ease all;
   }
-  .main__btn1:after{
+  .main__btn:after{
     right:inherit;
     top:inherit;
     left:0;
     bottom:0;
   }
-  .main__btn1:hover:before,.main__btn1:hover:after{
+  .main__btn:hover:before,.main__btn:hover:after{
     width:100%;
     transition:800ms ease all;
   }
@@ -75,7 +87,7 @@
 
 
 
-.audio1{
+.audio{
     /* z-index: 2; */
     cursor: pointer;
     padding: 20px;
@@ -84,7 +96,7 @@
     vertical-align:auto;
 }
 
-.project1{
+.project{
     position: relative;
     width: 460px;
     height: 260px;
@@ -99,7 +111,7 @@
     
 }
 
-.project__img1{
+.project__img{
     width: 100%;
     height: 100%;
     background-position: center;
@@ -109,7 +121,7 @@
     /* object-fit:cover; */
 }
 
-.project__description1{
+.project__description{
  position: absolute;
  background-color: rgb(0, 0, 0, 0);
  display: flex;
@@ -127,16 +139,16 @@
 
 
 
-.project1:hover .project__description1 {
+.project:hover .project__description1 {
     /* opacity: .5; */
     background-color: rgba( 0, 0, 0, 0.5 );
 }
 
 
-.project1:hover .imgtext1{
+.project:hover .imgtext1{
     opacity: 1;
 }
 
-.project1:hover .audio1{
+.project:hover .audio1{
     opacity: 1;
 }

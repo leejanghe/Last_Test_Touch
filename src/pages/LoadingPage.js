@@ -1,5 +1,5 @@
 import React from 'react'
-import './Loading.css'
+// import './Loading.css'
 import Lottie from 'react-lottie'
 import * as loading from '../pages/loadingpage/animation.json'
 

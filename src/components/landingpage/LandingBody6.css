@@ -238,7 +238,7 @@
 }
 }
 
-/* 
+
 .text{
     margin-left: 490px;
     position: absolute;
@@ -250,19 +250,19 @@
     font-family: 'Gothic A1', sans-serif;
     
     
-} */
+} 
 
-/* .lottie{
+.lottie{
     margin-left: 290px;
     position: absolute;
    margin-top: 50px;
-} */
+}
 
-/* .button-wrap{
+.button-wrap{
     margin-top: 660px;
     margin-left: 520px;
-} */
+}
 
 .right-button {
     margin-left: 60px;
-}
+} 

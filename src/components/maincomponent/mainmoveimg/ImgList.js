@@ -1,10 +1,9 @@
 import React,{useEffect, useState} from 'react'
-import MoveImglist from '../../components/maincomponent/mainmoveimg/MoveImglist'
-import Search from '../../components/search/Search'
-import Loading from '../LoadingPage'
-import axios from 'axios'
-import swal from 'sweetalert'
-import './mainpagecss/Mainpage.css'
+import MoveImglist from './MoveImglist'
+import Search from '../search/Search'
+import Loading from '../../../pages/LoadingPage'
+import * as AiIcons from 'react-icons/ai';
+import '../maincss/Mainpagehome.css'
 
 
 function MoveImgList({moveImgs, handleMoveCardClick, moveCurrentImgs, search}) {
@@ -40,14 +39,16 @@ function MoveImgList({moveImgs, handleMoveCardClick, moveCurrentImgs, search}) {
     useEffect(()=>{
         setTimeout(()=>{
           setLoading(false)
-        },1000)
+        },5000)
       },[])
 
 //console.log('asdf', moveImgs)
 
     return loading?<Loading/>:(
         <div>
-            <button className="top" onClick={handleTop}>맨위로!!!</button>
+            <div className="top" onClick={handleTop}>
+            <AiIcons.AiOutlineArrowUp/>
+            </div>
             <Search search={search}/>
             <MoveImglist moveCurrentImgs={moveCurrentImgs} moveImgs={moveImgs} 
             handleMoveCardClick={handleMoveCardClick}/>

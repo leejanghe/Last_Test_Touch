@@ -2,10 +2,34 @@ import React,{useState,useEffect} from 'react'
 import FavoriteCard from './FavoriteCard'
 import axios from 'axios';
 import swal from 'sweetalert';
+import styled from 'styled-components'
 
+function FavoriteCardList({userinfo}) {
 
-function FavoriteCardList() {
+  const LikeCardBackground = styled.div`
+background-image: url('https://cdn.pixabay.com/photo/2015/12/15/09/04/banner-1093909_960_720.jpg');
+margin: 0;
+font-size: 2.5rem;
+background-repeat: no-repeat;
+background-size : cover;
+max-width: 100%;
+height:15rem;
+background-position: center;    
+justify-content: center;
+display: block;
+display: flex;
+flex-direction: column;
+`
 
+const LikeCardText = styled.div`
+text-align: center;
+background-color: rgba(255, 255, 255, 0.3);
+padding:0.3rem;
+color:rgb(23, 2, 2);
+font-weight: 600;
+color: #2f4f4f;
+   
+`
 
 
     const [likeCards, setLikeCards] = useState([])
@@ -50,11 +74,16 @@ function FavoriteCardList() {
     }, []);
 
 
-    return (
-        <div>
-        <div className="test-back1">
-        <h1>찜목록페이지 입니다!</h1>
-        <div className="test1">
+    return userinfo&&(
+      <div>
+<LikeCardBackground>
+  <LikeCardText>
+{userinfo.nickname} 님의 찜 목록 페이지 입니다!
+  </LikeCardText>
+</LikeCardBackground>
+        
+        <div className="test-back">
+        <div className="test">
         {likeCards && likeCards.map((likeCard, idx) => <FavoriteCard
         likeCard={likeCard}
         handleDelete={handleDelete}

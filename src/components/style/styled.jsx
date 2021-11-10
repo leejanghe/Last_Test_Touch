@@ -134,6 +134,7 @@ export const StyledButton = styled.button`
 `;
 
 export const Menu = styled.div`
+  z-index: 99;
   position: absolute;
   top: 20px;
   right: -10px;

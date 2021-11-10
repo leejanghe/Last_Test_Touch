@@ -6,9 +6,9 @@ function MoveImglist({moveImgs,moveCurrentImgs, handleMoveCardClick}) {
     return (
 
 <div>
-<div className="test-back1">
+<div className="test-back">
 <div></div>
-<div className="test1">
+<div className="test">
 {moveImgs && moveImgs.map((moveimg, idx) => <MovelistCard
 handleMoveCardClick={handleMoveCardClick}
 moveimg={moveimg} 

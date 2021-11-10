@@ -1,5 +1,5 @@
 import React from 'react'
-import '../sidebar/sidebar.css'
+import '../maincss/sidebar.css'
 
 import { Link } from 'react-router-dom'
 
@@ -15,8 +15,8 @@ function MainSideBar() {
     <div className="side_menu_background">
 
     <div className="side_menu">
-        <Link to = "/heal" className= "side_menu_text">About</Link>
-        <Link to = "/heal/moveimg" className= "side_menu_text">ImgList</Link>
+        {/* <Link to = "/heal" className= "side_menu_text">About</Link> */}
+        <Link to = "/heal" className= "side_menu_text">ImgList</Link>
          <Link to = "/heal/touch" className= "side_menu_text">Touch</Link>
 
     </div>

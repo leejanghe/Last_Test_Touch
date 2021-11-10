@@ -1,25 +1,14 @@
 import React,{useEffect, useState} from 'react'
 import Header from '../../components/header/Header'
-import MainSideBar from '../../components/sidebar/SideBar'
+// import MainSideBar from '../../components/sidebar/SideBar'
+import MainSideBar from '../../components/maincomponent/sidebar/SideBar';
 import {Route, Switch} from 'react-router-dom'
-import styled from 'styled-components';
-// import ImgList from './ImgList';
-import Touch from './Touch';
-import MoveImgList from './MoveImgList';
-import Home from './Home';
+import Touch from '../../components/maincomponent/touch/Touch';
+import MoveImgList from '../../components/maincomponent/mainmoveimg/ImgList';
+import Home from '../../components/maincomponent/mainhome/Home'
 import axios from 'axios'
 import swal from 'sweetalert'
 
-
-
-const MainGrid = styled.div`
-margin-left: 240px;
-`
-const MainGridBody = styled.div`
-margin-left: 20px;
-/* padding-top: 120px; */
-text-align: center;
-`
 
 
 
@@ -86,15 +75,14 @@ function Heal({isLogin, userinfo, handleLogout}){
         <div>
             <Header userinfo={userinfo} isLogin={isLogin} handleLogout={handleLogout}/>
             <MainSideBar/>
-            {/* <MainGridBody /> */}
-            {/* <Search search={search}/> */}
+        
         <Switch>
-        {/* <MainGrid> */}
+       
       
-        <Route path='/heal' exact component={Home} />
+        {/* <Route path='/heal' exact component={Home} /> */}
   
 
-        <Route path='/heal/moveimg' 
+        <Route exact path='/heal' 
         render={()=><MoveImgList 
             search={search}
             moveCurrentImgs={moveCurrentImgs} 
@@ -110,7 +98,7 @@ function Heal({isLogin, userinfo, handleLogout}){
         moveImgs={moveCurrentImgs}
 
         />}/>
-        {/* </MainGrid> */}
+       
         </Switch>
         </div>
     )

@@ -1,12 +1,13 @@
 import React,{useState,useEffect} from 'react';
-import {useHistory} from 'react-router-dom'
+// import {useHistory} from 'react-router-dom'
 import axios from 'axios'
 import {isEmail, isPassword} from '../../components/utills/isEmail'
+import { Link } from 'react-router-dom'
 import swal from 'sweetalert';
 
 const UserUpdate = ({userinfo}) => {
 
-	const history = useHistory();
+	// const history = useHistory();
 
 
 	const [userForm, setUserForm] = useState({
@@ -38,33 +39,39 @@ const UserUpdate = ({userinfo}) => {
 			});
 	}
 
-	const deleteUser = () => {
-		axios
-			.delete('https://localhost:4000/unregister', { withCredentials: true })
-			.then(() =>{
-				swal({
-					title: '회원탈퇴 완료.',
-					text: '회원탈퇴 완료되었습니다.',
-					icon: 'success'
-				})
-					.then(() => {
-						history.push('/');
-						window.location.reload();
-					})
-			})
-			.catch((err) => {
-				console.log(err);
-			});
-	}
+	// const deleteUser = () => {
+	// 	axios
+	// 		.delete('https://localhost:4000/unregister', { withCredentials: true })
+	// 		.then(() =>{
+	// 			swal({
+	// 				title: '회원탈퇴 완료.',
+	// 				text: '회원탈퇴 완료되었습니다.',
+	// 				icon: 'success'
+	// 			})
+	// 				.then(() => {
+	// 					history.push('/');
+	// 					window.location.reload();
+	// 				})
+	// 		})
+	// 		.catch((err) => {
+	// 			console.log(err);
+	// 		});
+	// }
 
 	if(userinfo){
 		return (
 			<div>
-				<h1>{userinfo.nickname} 님의 회원 정보 수정</h1>
+				<section className="user_background">
+					<div className="user_container">
+
+					<form>
+				<h2>{userinfo.nickname} 님의 회원 정보 수정</h2>
 
 				<div>
-					<div>닉네임 변경</div>
+					<div className="user__text">닉네임 변경</div>
 					<input 
+					className="form-input"
+					placeholder="새로운 닉네임을 입력해주세요"
 					type = "text" 
 					name ="nickname" 
 					value={userForm.UserNick}
@@ -73,8 +80,10 @@ const UserUpdate = ({userinfo}) => {
 				</div>
 
 				<div>
-					<div>비밀번호 확인</div>
+					<div className="user__text" >새 비밀번호</div>
 					<input 
+					className="form-input"
+					placeholder="새로운 비밀 번호를 입력해주세요"
 					type = "password" 
 					name ="password" 
 					value={userForm.password}
@@ -83,8 +92,10 @@ const UserUpdate = ({userinfo}) => {
 				</div>
 
 				<div>
-					<div>비밀번호 2차확인</div>
+					<div className="user__text" >비밀번호 확인</div>
 					<input 
+					className="form-input"
+					placeholder="새로운 비밀 번호를 확인 해주세요"
 					type = "password" 
 					name ="password2" 
 					value={userForm.password2}
@@ -92,9 +103,17 @@ const UserUpdate = ({userinfo}) => {
 					></input>
 				</div>
 
-				<button onClick={updateUser}>수정</button>
-				<button>취소</button>
-				<button  onClick={deleteUser}>회원탈퇴</button>
+				<button 
+				className="user_update_btn"
+			
+				onClick={updateUser}>수정</button>
+				<Link to='/'><button
+				className="user_update_btn"
+				>취소</button></Link>
+
+				</form>
+				</div>
+				</section>
 			</div>
 		);
 	} else {

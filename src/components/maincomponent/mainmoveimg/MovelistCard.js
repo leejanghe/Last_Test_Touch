@@ -6,16 +6,16 @@ function MovelistCard({moveimg,handleMoveCardClick}) {
     const {image} = moveimg
     return (
         <div key={moveimg.id}>
-            <div className="project1">
-          <video className="project__img1" 
+            <div className="project">
+          <video className="project__img" 
           src={image} alt={moveimg.title} />
-            <div className="project__description1">
-                <h3 className="imgtext1">{moveimg.title}</h3>
-                <span className="imgtext1">{moveimg.content}</span>
-                <div className="audio1" >
+            <div className="project__description">
+                <h3 className="imgtext">{moveimg.title}</h3>
+                <span className="imgtext">{moveimg.content}</span>
+                <div className="audio" >
                 <audio controls src={moveimg.sound} type="audio/mpeg" ></audio>
                 <div>
-                <button className="main__btn1" 
+                <button className="main__btn" 
                 onClick ={()=>{handleMoveCardClick(moveimg)}} 
                 >Touch</button>
                 </div>
